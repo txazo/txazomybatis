@@ -5,15 +5,15 @@
 
 <mapper namespace="org.txazo.mybatis.dao.ProductMapper">
 
-	<insert id="insertProduct" parameterType="Product" useGeneratedKeys="true" keyProperty="id">
+	<insert id="insertProduct" parameterType="product" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO Product (name, price, createTime) VALUES (#{name}, #{price}, now())
 	</insert>
 
-	<update id="updateProduct" parameterType="Product">
+	<update id="updateProduct" parameterType="product">
 		UPDATE Product SET price = #{price} WHERE id = #{id}
 	</update>
 
-	<select id="selectProduct" parameterType="long" resultType="Product">
+	<select id="selectProduct" parameterType="long" resultType="product">
 		SELECT * FROM Product WHERE id = #{id}
 	</select>
 

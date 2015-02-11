@@ -1,0 +1,11 @@
+1. properties(resource) - Configuration(Properties variables)
+	property(name value)
+
+2. settings - Configuration
+	setting name value
+
+3. typeAliases - Configuration - TypeAliasRegistry
+	typeAlias(alias type)
+	package(name)
+
+4. typeHandlers - TypeHandlerRegistry
