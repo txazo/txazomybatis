@@ -12,6 +12,7 @@
 
 	<settings>
 		<setting name="cacheEnabled" value="true" />
+		<setting name="logImpl" value="LOG4J" />
 	</settings>
 
 	<typeAliases>
