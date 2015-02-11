@@ -16,7 +16,7 @@
 	</settings>
 
 	<typeAliases>
-		<typeAlias alias="Product" type="org.txazo.mybatis.bean.Product" />
+		<typeAlias alias="product" type="org.txazo.mybatis.bean.Product" />
 	</typeAliases>
 
 	<environments default="development">
