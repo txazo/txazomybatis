@@ -1,6 +1,7 @@
 package org.txazo.mybatis;
 
 import java.io.IOException;
+import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -60,6 +61,12 @@ public class MyBatisTest {
 	public void test4() {
 		Product product = productAnnoMapper.selectProduct(1L);
 		Assert.assertEquals("Apple", product.getName());
+	}
+
+	@Test
+	public void test5() {
+		Map<String, Object> product = productMapper.selectProductForMap(1L);
+		Assert.assertEquals("Apple", (String) product.get("name"));
 	}
 
 }
