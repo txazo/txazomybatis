@@ -27,3 +27,18 @@
 
 1. SqlSessionFactoryBuilder - 生成器模式
 2. SqlSessionFactory - 工厂模式
+
+
+Mapper.query()
+
+MapperProxy.invoke(Object proxy, Method method, Object[] args)
+
+MapperMethod.execute(SqlSession sqlSession, Object[] args)
+
+DefaultSqlSession.selectList(String statement, Object parameter, RowBounds rowBounds)
+
+CachingExecutor.query(MappedStatement ms, Object parameterObject, RowBounds rowBounds, ResultHandler resultHandler)
+
+SimpleExecutor.doQuery(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, BoundSql boundSql)
+
+RoutingStatementHandler.query(Statement statement, ResultHandler resultHandler)
