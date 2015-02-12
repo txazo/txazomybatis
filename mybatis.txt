@@ -9,3 +9,15 @@
 	package(name)
 
 4. typeHandlers - TypeHandlerRegistry
+
+5. objectFactory
+
+6. objectWrapperFactory
+
+7. plugins
+
+8. environments
+
+9. databaseIdProvider
+
+10. mappers - Configuration - MapperRegistry - MapperProxyFactory - MapperAnnotationBuilder

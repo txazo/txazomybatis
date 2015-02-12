@@ -36,7 +36,10 @@
 	</environments>
 
 	<mappers>
+		<!--
 		<mapper resource="org/txazo/mybatis/dao/ProductMapper.xml" />
 		<mapper class="org.txazo.mybatis.dao.ProductAnnoMapper" />
+		-->
+		<package name="org.txazo.mybatis.dao" />
 	</mappers>
 </configuration>
