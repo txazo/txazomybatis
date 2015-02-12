@@ -23,23 +23,33 @@
 		<typeHandler handler="org.txazo.mybatis.handler.JSONTypeHandler" />
 	</typeHandlers>
 
+	<objectFactory type="org.txazo.mybatis.factory.MyBatisObjectFactory" />
+
+	<objectWrapperFactory type="org.txazo.mybatis.factory.MyBatisObjectWrapperFactory" />
+
+	<plugins>
+		<plugin interceptor="org.txazo.mybatis.plugin.MyBatisInterceptor"></plugin>
+	</plugins>
+
 	<environments default="development">
 		<environment id="development">
-			<transactionManager type="JDBC" />
-			<dataSource type="POOLED">
+			<transactionManager type="JDBC" /> <!-- org.apache.ibatis.transaction.jdbc.JdbcTransaction -->
+			<!-- <transactionManager type="MANAGED" /> -->
+			<dataSource type="POOLED"> <!-- org.apache.ibatis.datasource.pooled.PooledDataSource -->
 				<property name="driver" value="${driver}" />
 				<property name="url" value="${url}" />
 				<property name="username" value="${username}" />
 				<property name="password" value="${password}" />
+				<property name="poolMaximumActiveConnections" value="20" />
 			</dataSource>
+			<!-- <dataSource type="JNDI" /> -->
+			<!-- <dataSource type="UNPOOLED" /> -->
 		</environment>
 	</environments>
 
 	<mappers>
-		<!--
-		<mapper resource="org/txazo/mybatis/dao/ProductMapper.xml" />
-		<mapper class="org.txazo.mybatis.dao.ProductAnnoMapper" />
-		-->
+		<!-- <mapper resource="org/txazo/mybatis/dao/ProductMapper.xml" /> -->
+		<!-- <mapper class="org.txazo.mybatis.dao.ProductAnnoMapper" /> -->
 		<package name="org.txazo.mybatis.dao" />
 	</mappers>
 </configuration>

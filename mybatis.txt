@@ -8,16 +8,22 @@
 	typeAlias(alias type)
 	package(name)
 
-4. typeHandlers - TypeHandlerRegistry
+4. typeHandlers - Configuration - TypeHandlerRegistry
 
-5. objectFactory
+5. objectFactory - Configuration - ObjectFactory
 
 6. objectWrapperFactory
 
-7. plugins
+7. plugins - Configuration - InterceptorChain
 
 8. environments
 
 9. databaseIdProvider
 
 10. mappers - Configuration - MapperRegistry - MapperProxyFactory - MapperAnnotationBuilder
+
+
+
+
+1. SqlSessionFactoryBuilder - 生成器模式
+2. SqlSessionFactory - 工厂模式
