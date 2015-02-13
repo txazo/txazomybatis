@@ -41,7 +41,7 @@ public class MyBatisTest {
 
 	@Test
 	public void test1() {
-		Product product = new Product("txazo", 32.5);
+		Product product = new Product("zhenai", 32.5);
 		productMapper.insertProduct(product);
 	}
 

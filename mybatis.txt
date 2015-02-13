@@ -37,8 +37,23 @@ MapperMethod.execute(SqlSession sqlSession, Object[] args)
 
 DefaultSqlSession.selectList(String statement, Object parameter, RowBounds rowBounds)
 
+	Plugin.invoke(Object proxy, Method method, Object[] args)
+	
+	Interceptor.intercept(Invocation invocation)
+
 CachingExecutor.query(MappedStatement ms, Object parameterObject, RowBounds rowBounds, ResultHandler resultHandler)
 
 SimpleExecutor.doQuery(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, BoundSql boundSql)
 
 RoutingStatementHandler.query(Statement statement, ResultHandler resultHandler)
+
+Executor
+	BatchExecutor ReuseExecutor SimpleExecutor
+	CachingExecutor
+	InterceptorChain.pluginAll(Executor)
+	Interceptor.plugin(Object target)
+	Plugin.wrap(target, this)
+	
+
+
+1. 

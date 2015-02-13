@@ -29,6 +29,8 @@
 
 	<plugins>
 		<plugin interceptor="org.txazo.mybatis.plugin.MyBatisInterceptor"></plugin>
+		<plugin interceptor="org.txazo.mybatis.plugin.MyBatisInterceptor1"></plugin>
+		<plugin interceptor="org.txazo.mybatis.plugin.MyBatisInterceptor2"></plugin>
 	</plugins>
 
 	<environments default="development">
