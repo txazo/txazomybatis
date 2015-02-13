@@ -5,8 +5,7 @@
 <configuration>
 	<properties resource="mybatis.properties">
 		<property name="driver" value="com.mysql.jdbc.Driver" />
-		<property name="url"
-			value="jdbc:mysql://112.124.6.220:3306/test?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull" />
+		<property name="url" value="jdbc:mysql://112.124.6.220:3306/test?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull" />
 	</properties>
 
 	<settings>
@@ -29,8 +28,7 @@
 
 	<plugins>
 		<plugin interceptor="org.txazo.mybatis.plugin.MyBatisInterceptor"></plugin>
-		<plugin interceptor="org.txazo.mybatis.plugin.MyBatisInterceptor1"></plugin>
-		<plugin interceptor="org.txazo.mybatis.plugin.MyBatisInterceptor2"></plugin>
+		<plugin interceptor="org.txazo.mybatis.plugin.ExecutorInterceptor"></plugin>
 	</plugins>
 
 	<environments default="development">
