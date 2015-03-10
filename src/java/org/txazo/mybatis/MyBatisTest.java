@@ -13,7 +13,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+import org.txazo.mybatis.bean.MapParam;
 import org.txazo.mybatis.bean.Product;
+import org.txazo.mybatis.dao.MapMapper;
 import org.txazo.mybatis.dao.ProductAnnoMapper;
 import org.txazo.mybatis.dao.ProductMapper;
 
@@ -23,6 +25,7 @@ public class MyBatisTest {
 	private SqlSession session;
 	private ProductMapper productMapper;
 	private ProductAnnoMapper productAnnoMapper;
+	private MapMapper mapMapper;
 
 	@Before
 	public void before() throws IOException {
@@ -31,6 +34,7 @@ public class MyBatisTest {
 		session = factory.openSession();
 		productMapper = session.getMapper(ProductMapper.class);
 		productAnnoMapper = session.getMapper(ProductAnnoMapper.class);
+		mapMapper = session.getMapper(MapMapper.class);
 	}
 
 	@After
@@ -67,6 +71,13 @@ public class MyBatisTest {
 	public void test5() {
 		Map<String, Object> product = productMapper.selectProductForMap(1L);
 		Assert.assertEquals("Apple", (String) product.get("name"));
+	}
+
+	@Test
+	public void test6() {
+		MapParam mapParam = new MapParam("name", "price");
+		Map<String, Object> map = mapMapper.getMap(mapParam);
+		System.out.println(map);
 	}
 
 }
