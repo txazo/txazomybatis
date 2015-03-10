@@ -19,7 +19,7 @@
 	</typeAliases>
 
 	<typeHandlers>
-		<typeHandler handler="org.txazo.mybatis.handler.JSONTypeHandler" />
+		<typeHandler handler="org.txazo.mybatis.handler.JsonMapTypeHandler" />
 	</typeHandlers>
 
 	<objectFactory type="org.txazo.mybatis.factory.MyBatisObjectFactory" />

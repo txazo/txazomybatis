@@ -15,26 +15,30 @@ import com.alibaba.fastjson.JSON;
 
 @MappedTypes(Map.class)
 @MappedJdbcTypes(value = { JdbcType.VARCHAR })
-public class JSONTypeHandler implements TypeHandler<Map<String, Object>> {
+public class JsonMapTypeHandler implements TypeHandler<Map<String, Object>> {
 
 	@Override
 	public void setParameter(PreparedStatement ps, int i, Map<String, Object> parameter, JdbcType jdbcType) throws SQLException {
+		System.out.println("--------------------" + parameter);
 		ps.setString(i, JSON.toJSONString(parameter));
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public Map<String, Object> getResult(ResultSet rs, String columnName) throws SQLException {
-		return null;
+		return JSON.parseObject(rs.getString(columnName), Map.class);
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public Map<String, Object> getResult(ResultSet rs, int columnIndex) throws SQLException {
-		return null;
+		return JSON.parseObject(rs.getString(columnIndex), Map.class);
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public Map<String, Object> getResult(CallableStatement cs, int columnIndex) throws SQLException {
-		return null;
+		return JSON.parseObject(cs.getString(columnIndex), Map.class);
 	}
 
 }

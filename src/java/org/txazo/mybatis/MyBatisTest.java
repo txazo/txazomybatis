@@ -1,6 +1,7 @@
 package org.txazo.mybatis;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
@@ -15,6 +16,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.txazo.mybatis.bean.MapParam;
 import org.txazo.mybatis.bean.Product;
+import org.txazo.mybatis.dao.JsonMapMapper;
 import org.txazo.mybatis.dao.MapMapper;
 import org.txazo.mybatis.dao.ProductAnnoMapper;
 import org.txazo.mybatis.dao.ProductMapper;
@@ -26,6 +28,7 @@ public class MyBatisTest {
 	private ProductMapper productMapper;
 	private ProductAnnoMapper productAnnoMapper;
 	private MapMapper mapMapper;
+	private JsonMapMapper jsonMapMapper;
 
 	@Before
 	public void before() throws IOException {
@@ -35,6 +38,7 @@ public class MyBatisTest {
 		productMapper = session.getMapper(ProductMapper.class);
 		productAnnoMapper = session.getMapper(ProductAnnoMapper.class);
 		mapMapper = session.getMapper(MapMapper.class);
+		jsonMapMapper = session.getMapper(JsonMapMapper.class);
 	}
 
 	@After
@@ -78,6 +82,15 @@ public class MyBatisTest {
 		MapParam mapParam = new MapParam("name", "price");
 		Map<String, Object> map = mapMapper.getMap(mapParam);
 		System.out.println(map);
+	}
+
+	@Test
+	public void test7() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		//Map<String, Object> map1 = new HashMap<String, Object>();
+		//map1.put("name", "txazo");
+		map.put("name", "txazo");
+		jsonMapMapper.insertMap(map);
 	}
 
 }
