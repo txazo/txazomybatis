@@ -95,4 +95,10 @@ public class MyBatisTest {
 		jsonMapMapper.insertMap(new JsonMap(map));
 	}
 
+	@Test
+	public void test8() {
+		JsonMap jsonMap = jsonMapMapper.selectMap(15);
+		System.out.println(jsonMap.getJson());
+	}
+
 }

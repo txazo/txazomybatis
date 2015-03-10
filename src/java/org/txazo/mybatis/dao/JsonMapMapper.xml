@@ -9,4 +9,13 @@
 		insert into JsonMap(json) values (#{json, javaType=map, jdbcType=VARCHAR})
 	</insert>
 
+	<resultMap id="JsonMapResult" type="jsonMap">
+		<result column="json" property="json" javaType="map" jdbcType="VARCHAR" />
+		<!-- <result column="json" property="json" typeHandler="org.txazo.mybatis.handler.JsonMapTypeHandler" /> -->
+	</resultMap>
+
+	<select id="selectMap" parameterType="_long" resultMap="JsonMapResult">
+		SELECT json FROM JsonMap WHERE id = #{id}
+	</select>
+
 </mapper>

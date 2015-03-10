@@ -5,22 +5,27 @@
 <configuration>
 	<properties resource="mybatis.properties">
 		<property name="driver" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://112.124.6.220:3306/test?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull" />
+		<property name="url"
+			value="jdbc:mysql://112.124.6.220:3306/test?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull" />
 	</properties>
 
+	<!-- Configuration -->
 	<settings>
 		<setting name="cacheEnabled" value="true" />
 		<setting name="logImpl" value="LOG4J" />
 	</settings>
 
+	<!-- TypeAliasRegistry -->
 	<typeAliases>
 		<typeAlias alias="product" type="org.txazo.mybatis.bean.Product" />
 		<typeAlias alias="jsonMap" type="org.txazo.mybatis.bean.JsonMap" />
 		<package name="org.txazo.mybatis.bean" />
 	</typeAliases>
 
+	<!-- TypeHandlerRegistry -->
 	<typeHandlers>
 		<typeHandler handler="org.txazo.mybatis.handler.JsonMapTypeHandler" />
+		<!--<typeHandler handler="org.txazo.mybatis.handler.JsonMapTypeHandler" javaType="map" jdbcType="VARCHAR" /> -->
 	</typeHandlers>
 
 	<objectFactory type="org.txazo.mybatis.factory.MyBatisObjectFactory" />

@@ -19,7 +19,6 @@ public class JsonMapTypeHandler implements TypeHandler<Map<String, Object>> {
 
 	@Override
 	public void setParameter(PreparedStatement ps, int i, Map<String, Object> parameter, JdbcType jdbcType) throws SQLException {
-		System.out.println("--------------------" + parameter);
 		ps.setString(i, JSON.toJSONString(parameter));
 	}
 
