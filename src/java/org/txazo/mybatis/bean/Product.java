@@ -52,4 +52,9 @@ public class Product implements Serializable {
 		this.createTime = createTime;
 	}
 
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", createTime=" + createTime + "]";
+	}
+
 }

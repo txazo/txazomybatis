@@ -22,24 +22,22 @@ import org.apache.ibatis.session.RowBounds;
  * 4. org.apache.ibatis.executor.statement.StatementHandler
  * </pre>
  */
-@Intercepts(value = { @Signature(type = Executor.class, method = "query", args = { MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class }) })
+@Intercepts(value = { @Signature(type = Executor.class, method = "query", args = { MappedStatement.class, Object.class, RowBounds.class,
+		ResultHandler.class }) })
 public class MyBatisInterceptor implements Interceptor {
 
 	@Override
 	public Object intercept(Invocation invocation) throws Throwable {
-		System.out.println("----------MyBatisInterceptor intercept " + invocation.getTarget().getClass().getCanonicalName());
 		return invocation.proceed();
 	}
 
 	@Override
 	public Object plugin(Object target) {
-		System.out.println("----------MyBatisInterceptor plugin " + target.getClass().getCanonicalName());
 		return Plugin.wrap(target, this);
 	}
 
 	@Override
 	public void setProperties(Properties properties) {
-		System.out.println("----------MyBatisInterceptor setProperties");
 	}
 
 }

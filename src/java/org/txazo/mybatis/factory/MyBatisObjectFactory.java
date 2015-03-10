@@ -18,7 +18,7 @@ public class MyBatisObjectFactory extends DefaultObjectFactory {
 
 	@Override
 	public <T> T create(Class<T> type, List<Class<?>> constructorArgTypes, List<Object> constructorArgs) {
-		System.out.println("----------MyBatisObjectFactory create " + type.getCanonicalName());
+		// System.out.println("----------MyBatisObjectFactory create " + type.getCanonicalName());
 		return super.create(type, constructorArgTypes, constructorArgs);
 	}
 

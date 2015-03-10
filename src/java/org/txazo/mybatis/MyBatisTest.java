@@ -1,8 +1,10 @@
 package org.txazo.mybatis;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
@@ -18,6 +20,7 @@ import org.junit.runners.JUnit4;
 import org.txazo.mybatis.bean.JsonMap;
 import org.txazo.mybatis.bean.MapParam;
 import org.txazo.mybatis.bean.Product;
+import org.txazo.mybatis.dao.DynamicSQLMapper;
 import org.txazo.mybatis.dao.JsonMapMapper;
 import org.txazo.mybatis.dao.MapMapper;
 import org.txazo.mybatis.dao.ProductAnnoMapper;
@@ -31,6 +34,7 @@ public class MyBatisTest {
 	private ProductAnnoMapper productAnnoMapper;
 	private MapMapper mapMapper;
 	private JsonMapMapper jsonMapMapper;
+	private DynamicSQLMapper dynamicSQLMapper;
 
 	@Before
 	public void before() throws IOException {
@@ -41,6 +45,7 @@ public class MyBatisTest {
 		productAnnoMapper = session.getMapper(ProductAnnoMapper.class);
 		mapMapper = session.getMapper(MapMapper.class);
 		jsonMapMapper = session.getMapper(JsonMapMapper.class);
+		dynamicSQLMapper = session.getMapper(DynamicSQLMapper.class);
 	}
 
 	@After
@@ -99,6 +104,39 @@ public class MyBatisTest {
 	public void test8() {
 		JsonMap jsonMap = jsonMapMapper.selectMap(15);
 		System.out.println(jsonMap.getJson());
+	}
+
+	@Test
+	public void test9() {
+		System.out.println(dynamicSQLMapper.getProductCountByIf(-1));
+		System.out.println(dynamicSQLMapper.getProductCountByIf(0));
+		System.out.println(dynamicSQLMapper.getProductCountByIf(1));
+
+		System.out.println(dynamicSQLMapper.getProductCountByChoose(-1));
+		System.out.println(dynamicSQLMapper.getProductCountByChoose(0));
+		System.out.println(dynamicSQLMapper.getProductCountByChoose(1));
+
+		System.out.println(dynamicSQLMapper.getProductCountByChoose(-1));
+		System.out.println(dynamicSQLMapper.getProductCountByChoose(0));
+		System.out.println(dynamicSQLMapper.getProductCountByChoose(1));
+	}
+
+	@Test
+	public void test10() {
+		Product product = new Product();
+		product.setId(1L);
+		product.setPrice(12.5);
+		dynamicSQLMapper.updateProduct(product);
+	}
+
+	@Test
+	public void test11() {
+		List<Long> ids = new ArrayList<>();
+		ids.add(1L);
+		ids.add(2L);
+		ids.add(3L);
+		List<Product> list = dynamicSQLMapper.getProduct(ids);
+		System.out.println(list);
 	}
 
 }
