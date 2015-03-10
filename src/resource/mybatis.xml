@@ -15,6 +15,7 @@
 
 	<typeAliases>
 		<typeAlias alias="product" type="org.txazo.mybatis.bean.Product" />
+		<typeAlias alias="jsonMap" type="org.txazo.mybatis.bean.JsonMap" />
 		<package name="org.txazo.mybatis.bean" />
 	</typeAliases>
 

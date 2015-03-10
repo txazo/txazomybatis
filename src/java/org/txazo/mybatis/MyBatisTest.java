@@ -1,6 +1,7 @@
 package org.txazo.mybatis;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,6 +15,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+import org.txazo.mybatis.bean.JsonMap;
 import org.txazo.mybatis.bean.MapParam;
 import org.txazo.mybatis.bean.Product;
 import org.txazo.mybatis.dao.JsonMapMapper;
@@ -87,10 +89,10 @@ public class MyBatisTest {
 	@Test
 	public void test7() {
 		Map<String, Object> map = new HashMap<String, Object>();
-		//Map<String, Object> map1 = new HashMap<String, Object>();
-		//map1.put("name", "txazo");
 		map.put("name", "txazo");
-		jsonMapMapper.insertMap(map);
+		map.put("price", 10.5);
+		map.put("createTime", new Date());
+		jsonMapMapper.insertMap(new JsonMap(map));
 	}
 
 }

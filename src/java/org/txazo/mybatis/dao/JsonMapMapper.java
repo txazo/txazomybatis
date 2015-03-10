@@ -1,9 +1,9 @@
 package org.txazo.mybatis.dao;
 
-import java.util.Map;
+import org.txazo.mybatis.bean.JsonMap;
 
 public interface JsonMapMapper {
 
-	public void insertMap(Map<String, Object> map1);
+	public void insertMap(JsonMap jsonMap);
 
 }

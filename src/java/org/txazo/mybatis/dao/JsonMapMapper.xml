@@ -5,8 +5,8 @@
 
 <mapper namespace="org.txazo.mybatis.dao.JsonMapMapper">
 
-	<insert id="insertMap">
-		insert into JsonMap(json) values (#{0, javaType=map, jdbcType=VARCHAR})
+	<insert id="insertMap" parameterType="jsonMap">
+		insert into JsonMap(json) values (#{json, javaType=map, jdbcType=VARCHAR})
 	</insert>
 
 </mapper>
