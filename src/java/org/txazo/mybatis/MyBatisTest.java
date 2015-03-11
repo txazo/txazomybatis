@@ -150,4 +150,17 @@ public class MyBatisTest {
 		productMapper.deleteProduct(7L);
 	}
 
+	@Test
+	public void test14() {
+		Product product = new Product("dp", 99);
+		productAnnoMapper.insertProduct(product);
+	}
+
+	@Test
+	public void test15() {
+		Product product = productAnnoMapper.selectProduct(1L);
+		product.setPrice(99.9);
+		productAnnoMapper.updateProduct(product);
+	}
+
 }
