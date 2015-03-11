@@ -40,17 +40,17 @@
 
 	<environments default="development">
 		<environment id="development">
-			<transactionManager type="JDBC" /> <!-- org.apache.ibatis.transaction.jdbc.JdbcTransaction -->
-			<!-- <transactionManager type="MANAGED" /> -->
-			<dataSource type="POOLED"> <!-- org.apache.ibatis.datasource.pooled.PooledDataSource -->
+			<transactionManager type="JDBC" /> <!-- org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory -->
+			<!-- <transactionManager type="MANAGED" /> --> <!-- org.apache.ibatis.transaction.managed.ManagedTransactionFactory -->
+			<dataSource type="POOLED"> <!-- org.apache.ibatis.datasource.pooled.PooledDataSourceFactory -->
 				<property name="driver" value="${driver}" />
 				<property name="url" value="${url}" />
 				<property name="username" value="${username}" />
 				<property name="password" value="${password}" />
 				<property name="poolMaximumActiveConnections" value="20" />
 			</dataSource>
-			<!-- <dataSource type="JNDI" /> -->
-			<!-- <dataSource type="UNPOOLED" /> -->
+			<!-- <dataSource type="JNDI" /> --> <!-- org.apache.ibatis.datasource.jndi.JndiDataSourceFactory -->
+			<!-- <dataSource type="UNPOOLED" /> --> <!-- org.apache.ibatis.datasource.unpooled.UnpooledDataSourceFactory -->
 		</environment>
 	</environments>
 

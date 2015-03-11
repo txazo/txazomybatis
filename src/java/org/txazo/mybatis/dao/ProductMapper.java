@@ -11,6 +11,8 @@ public interface ProductMapper {
 
 	public void updateProduct(Product product);
 
+	public void deleteProduct(Long id);
+
 	public Product selectProduct(Long id);
 
 	public Map<String, Object> selectProductForMap(Long id);

@@ -145,4 +145,9 @@ public class MyBatisTest {
 		System.out.println(list);
 	}
 
+	@Test
+	public void test13() {
+		productMapper.deleteProduct(7L);
+	}
+
 }

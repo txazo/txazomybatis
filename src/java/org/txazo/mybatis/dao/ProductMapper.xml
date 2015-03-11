@@ -14,6 +14,10 @@
 		UPDATE Product SET price = #{price} WHERE id = #{id}
 	</update>
 
+	<delete id="deleteProduct" parameterType="long">
+		DELETE FROM Product WHERE id = #{id}
+	</delete>
+
 	<sql id="productColumns">id, name, price, createTime</sql>
 
 	<select id="selectProduct" parameterType="long" resultType="product">
