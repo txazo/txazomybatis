@@ -116,9 +116,9 @@ public class MyBatisTest {
 		System.out.println(dynamicSQLMapper.getProductCountByChoose(0));
 		System.out.println(dynamicSQLMapper.getProductCountByChoose(1));
 
-		System.out.println(dynamicSQLMapper.getProductCountByChoose(-1));
-		System.out.println(dynamicSQLMapper.getProductCountByChoose(0));
-		System.out.println(dynamicSQLMapper.getProductCountByChoose(1));
+		System.out.println(dynamicSQLMapper.getProductCountByTrim(-1));
+		System.out.println(dynamicSQLMapper.getProductCountByTrim(0));
+		System.out.println(dynamicSQLMapper.getProductCountByTrim(1));
 	}
 
 	@Test
@@ -131,7 +131,7 @@ public class MyBatisTest {
 
 	@Test
 	public void test11() {
-		List<Long> ids = new ArrayList<>();
+		List<Long> ids = new ArrayList<Long>();
 		ids.add(1L);
 		ids.add(2L);
 		ids.add(3L);
