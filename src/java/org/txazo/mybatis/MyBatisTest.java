@@ -139,4 +139,10 @@ public class MyBatisTest {
 		System.out.println(list);
 	}
 
+	@Test
+	public void test12() {
+		List<Product> list = productMapper.selectProductLike("tx");
+		System.out.println(list);
+	}
+
 }

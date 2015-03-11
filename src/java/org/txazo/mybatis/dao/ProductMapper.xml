@@ -28,4 +28,10 @@
 		FROM Product WHERE id = #{id}
 	</select>
 
+	<select id="selectProductLike" parameterType="string" resultType="product">
+		SELECT
+		<include refid="productColumns" />
+		FROM Product WHERE name like '%${_parameter}%'
+	</select>
+
 </mapper>
