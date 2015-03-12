@@ -13,7 +13,7 @@ import org.apache.ibatis.type.TypeHandler;
 
 import com.alibaba.fastjson.JSON;
 
-@MappedTypes(Map.class)
+@MappedTypes({ Map.class })
 @MappedJdbcTypes(value = { JdbcType.VARCHAR })
 public class JsonMapTypeHandler implements TypeHandler<Map<String, Object>> {
 

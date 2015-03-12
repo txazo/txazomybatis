@@ -3,6 +3,9 @@ package org.txazo.mybatis.bean;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("product")
 public class Product implements Serializable {
 
 	private static final long serialVersionUID = 5547226943976600649L;
