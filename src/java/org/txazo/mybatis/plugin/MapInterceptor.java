@@ -28,7 +28,7 @@ public class MapInterceptor implements Interceptor {
 		Object target = invocation.getTarget();
 		if (target instanceof DefaultResultSetHandler) {
 			DefaultResultSetHandler resultSetHandler = (DefaultResultSetHandler) target;
-			ParameterHandler parameterHandler = ReflectUtil.getFieldValue(resultSetHandler, "parameterHandler");
+			ParameterHandler parameterHandler = (ParameterHandler) ReflectUtil.getFieldValue(resultSetHandler, "parameterHandler");
 			if (parameterHandler != null) {
 				Object parameterObj = parameterHandler.getParameterObject();
 				if (parameterObj instanceof MapParam) {

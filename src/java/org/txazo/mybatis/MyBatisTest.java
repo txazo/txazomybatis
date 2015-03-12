@@ -23,8 +23,10 @@ import org.txazo.mybatis.bean.Product;
 import org.txazo.mybatis.dao.DynamicSQLMapper;
 import org.txazo.mybatis.dao.JsonMapMapper;
 import org.txazo.mybatis.dao.MapMapper;
+import org.txazo.mybatis.dao.PageMapper;
 import org.txazo.mybatis.dao.ProductAnnoMapper;
 import org.txazo.mybatis.dao.ProductMapper;
+import org.txazo.mybatis.page.Page;
 
 @RunWith(JUnit4.class)
 public class MyBatisTest {
@@ -35,6 +37,7 @@ public class MyBatisTest {
 	private MapMapper mapMapper;
 	private JsonMapMapper jsonMapMapper;
 	private DynamicSQLMapper dynamicSQLMapper;
+	private PageMapper pageMapper;
 
 	@Before
 	public void before() throws IOException {
@@ -46,6 +49,7 @@ public class MyBatisTest {
 		mapMapper = session.getMapper(MapMapper.class);
 		jsonMapMapper = session.getMapper(JsonMapMapper.class);
 		dynamicSQLMapper = session.getMapper(DynamicSQLMapper.class);
+		pageMapper = session.getMapper(PageMapper.class);
 	}
 
 	@After
@@ -161,6 +165,15 @@ public class MyBatisTest {
 		Product product = productAnnoMapper.selectProduct(1L);
 		product.setPrice(99.9);
 		productAnnoMapper.updateProduct(product);
+	}
+
+	@Test
+	public void test16() {
+		Page<Product> page = new Page<Product>();
+		page.setPage(1);
+		page.setPageSize(3);
+		List<Product> list = pageMapper.getProductByPage(page);
+		System.out.println(list);
 	}
 
 }

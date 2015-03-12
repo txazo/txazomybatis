@@ -12,11 +12,17 @@ public class Page<T> implements Serializable {
 
 	private static final long serialVersionUID = -6689934960548171836L;
 
+	/** 当前页 */
 	private int page;
+	/** 页大小 */
 	private int pageSize;
+	/** 总页数 */
 	private int totalPage;
+	/** 总数 */
 	private int totalSize;
+	/** 结果集 */
 	private List<T> results;
+	/** 参数 */
 	private Map<String, Object> params = new HashMap<String, Object>();
 
 	public int getPage() {

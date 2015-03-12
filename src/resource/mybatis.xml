@@ -36,6 +36,9 @@
 		<plugin interceptor="org.txazo.mybatis.plugin.MyBatisInterceptor"></plugin>
 		<plugin interceptor="org.txazo.mybatis.plugin.ExecutorInterceptor"></plugin>
 		<plugin interceptor="org.txazo.mybatis.plugin.MapInterceptor"></plugin>
+		<plugin interceptor="org.txazo.mybatis.page.PageInterceptor">
+			<property name="databaseType" value="mysql" />
+		</plugin>
 	</plugins>
 
 	<environments default="development">
